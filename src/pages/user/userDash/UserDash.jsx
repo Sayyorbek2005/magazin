@@ -245,7 +245,7 @@ export default function UserDash() {
                 
                 <div className="settings-actions">
                   <button className="settings-btn" onClick={() => toast.warn("Tez kunda...")}>
-                    🔄 Loginni o‘zgartirish
+                    Loginni o‘zgartirish
                   </button>
                   <button className="settings-btn logout-danger" onClick={handleLogout}>
                     ❌ Tizimdan chiqish
