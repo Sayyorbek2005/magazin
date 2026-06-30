@@ -49,26 +49,24 @@ export default function UserDash() {
 
   const navigate = useNavigate();
 
-  // 👤 1. Sahifa yuklanganda xotiradagi bor ma'lumotni o'qish (ochib-kirganda o'chib ketmaydi)
+  // 👤 1. Sahifa yuklanganda xotiradagi bor ma'lumotni o'qish
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       const user = JSON.parse(storedUser);
       setCurrentUser(user);
 
-      // Xotirada avval saqlangan qiymatlar bo'lsa, ularni olamiz
       const savedBonus = localStorage.getItem(`bonus_${user.phone}`);
       const savedCount = localStorage.getItem(`count_${user.phone}`);
       const savedChart = localStorage.getItem(`chart_${user.phone}`);
 
-      // Agar xotirada ma'lumot bo'lsa o'qiydi, yo'q bo'lsa 0 ligicha qoladi
       if (savedBonus) setCurrentBonus(parseInt(savedBonus));
       if (savedCount) setCodeCount(parseInt(savedCount));
       if (savedChart) setDynamicChartData(JSON.parse(savedChart));
     } else {
       navigate("/login");
     }
-  }, []); // Bo'sh massiv - faqat 1 marta sahifa yuklanganda ishlaydi
+  }, []);
 
   // 💾 2. Qiymatlar o'zgarganda ularni LocalStorage-ga yozish
   useEffect(() => {
@@ -105,7 +103,8 @@ export default function UserDash() {
     if (bonusCode.trim().toLowerCase() === "xato") { 
       toast.error("Kod xato yoki oldin kiritilgan!");
     } else {
-      const bonusAmount = 1000; // Har bir kodga 1000 so'm
+      // 🎯 HAR BIR KOD KIRITILGANDA CHINAKAMIGA 1 BALL QO'SHILADI
+      const bonusAmount = 1; 
 
       setCurrentBonus((prev) => prev + bonusAmount); 
       setCodeCount((prev) => prev + 1);
@@ -175,7 +174,8 @@ export default function UserDash() {
               <div className="stats-grid">
                 <div className="stat-card">
                   <h4>Yig`ilgan ballar</h4>
-                  <p className="stat-number">{currentBonus.toLocaleString()}</p>
+                  {/* .toLocaleString() raqamlarni chiroyli formatlaydi */}
+                  <p className="stat-number">{currentBonus.toLocaleString()} ball</p> 
                 </div>
                 <div className="stat-card">
                   <h4>Kiritilgan kodlar</h4>

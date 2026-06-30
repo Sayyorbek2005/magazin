@@ -73,7 +73,7 @@ export default function Register() {
 
   return (
     <div className="auth">
-      <h2>Register</h2>
+      <h2>Ro`yxatdan o`tish</h2>
 
       <input
         type="text"
