@@ -1,20 +1,18 @@
- 
-
 :root {
   --bg-main: #f8fafc;
   --bg-sidebar: #0f172a;
   --bg-card: #ffffff;
   --text-main: #0f172a;
-  --text-muted: #64748b;
+  --text-muted: #475569; /* Kontrast kuchaytirildi */
   --primary: #3b82f6;
   --primary-hover: #2563eb;
   --success: #10b981;
-  --warning: #f59e0b;
+  --warning: #d97706; /* Aniqroq ko'rinishi uchun to'qroq rang */
   --danger: #ef4444;
-  --border-color: #e2e8f0;
-  --radius-lg: 12px;
-  --radius-md: 8px;
-  --transition: all 0.3s ease;
+  --border-color: #cbd5e1;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Umumiy Konteyner */
@@ -24,11 +22,12 @@
   background-color: var(--bg-main);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--text-main);
+  font-size: 18px; /* Eng kichik asosiy font */
 }
 
 /* 🧭 Sidebar Mukammal Stil */
 .dash-sidebar {
-  width: 280px;
+  width: 320px; /* Shrift kattalashgani uchun kengaytirildi */
   background-color: var(--bg-sidebar);
   color: #ffffff;
   display: flex;
@@ -39,28 +38,28 @@
   left: 0;
   z-index: 100;
   transition: var(--transition);
-  box-shadow: 4px 0 24px rgba(15, 23, 42, 0.15);
+  box-shadow: 6px 0 30px rgba(15, 23, 42, 0.15);
 }
 
 .sidebar-logo {
-  padding: 30px 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 32px 24px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.08);
 }
 
 .sidebar-logo h2 {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 800;
   letter-spacing: 0.5px;
   margin: 0;
   color: #ffffff;
 }
 
 .sidebar-logo span {
-  font-size: 12px;
+  font-size: 18px;
   color: var(--primary);
-  font-weight: 500;
+  font-weight: 600;
   display: block;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .sidebar-menu {
@@ -68,71 +67,71 @@
   padding: 24px 16px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .menu-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   background: none;
   border: none;
-  color: #94a3b8;
-  padding: 12px 16px;
+  color: #cbd5e1;
+  padding: 16px 20px;
   border-radius: var(--radius-md);
   cursor: pointer;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 19px;
+  font-weight: 600;
   text-align: left;
   transition: var(--transition);
 }
 
 .menu-item:hover {
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: rgba(255, 255, 255, 0.06);
   color: #ffffff;
 }
 
 .menu-item.active {
   background-color: var(--primary);
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
 }
 
 .menu-item .icon {
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .sidebar-footer {
-  padding: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 16px;
+  border-top: 2px solid rgba(255, 255, 255, 0.08);
 }
 
 .logout-btn {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   width: 100%;
   background: none;
   border: none;
   color: #f87171;
-  padding: 12px 16px;
+  padding: 16px 20px;
   border-radius: var(--radius-md);
   cursor: pointer;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 19px;
+  font-weight: 600;
   transition: var(--transition);
 }
 
 .logout-btn:hover {
-  background-color: rgba(239, 68, 68, 0.1);
+  background-color: rgba(239, 68, 68, 0.12);
 }
 
 /* 💻 Asosiy Kontent Maydoni */
 .dash-main {
   flex: 1;
-  margin-left: 280px;
-  padding: 40px;
-  min-width: 0; /* Flexbox shrkink muammosini oldini olish uchun */
+  margin-left: 320px;
+  padding: 48px;
+  min-width: 0;
 }
 
 /* Header */
@@ -140,13 +139,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .welcome-text {
-  font-size: 16px;
+  font-size: 20px;
   color: var(--text-muted);
 }
 
@@ -155,94 +154,95 @@
 }
 
 .role-badge {
-  background-color: rgba(239, 68, 68, 0.1);
+  background-color: rgba(239, 68, 68, 0.12);
   color: var(--danger);
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 700;
   letter-spacing: 0.5px;
+}
+
+/* Tab Sarlavhalari */
+.tab-section h3 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 0 24px 0;
 }
 
 /* 📊 Grid tizimlari va Kartalar */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 24px;
-  margin-bottom: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+  margin-bottom: 40px;
 }
 
 .stat-card {
   background-color: var(--bg-card);
-  padding: 24px;
+  padding: 28px;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.01);
+  border: 2px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   transition: var(--transition);
 }
 
 .stat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.04);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 .stat-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .stat-card h4 {
-  font-size: 14px;
+  font-size: 18px;
   color: var(--text-muted);
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
 }
 
 .stat-number {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 36px;
+  font-weight: 800;
   margin: 0;
 }
 
 .card-icon {
-  font-size: 20px;
+  font-size: 26px;
 }
 .card-icon.blue { color: var(--primary); }
 .card-icon.green { color: var(--success); }
 .card-icon.orange { color: var(--warning); }
 
 /* 📉 Grafik va jadvallar bo'limi */
-.chart-section {
+.chart-section, .code-box {
   background-color: var(--bg-card);
-  padding: 28px;
+  padding: 36px;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border-color);
-  margin-bottom: 32px;
+  border: 2px solid var(--border-color);
+  margin-bottom: 40px;
 }
 
-.chart-section h4, .history-section h4 {
-  font-size: 16px;
-  font-weight: 600;
+.chart-section h4, .history-section h4, .code-box h4 {
+  font-size: 22px;
+  font-weight: 700;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 /* 📥 Inputlar va Elementlar kutubxonasi */
-.code-box {
-  background-color: var(--bg-card);
-  padding: 32px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-color);
-}
-
 .code-input {
   width: 100%;
-  padding: 12px 16px;
-  border: 1px solid var(--border-color);
+  padding: 16px 20px;
+  border: 2px solid var(--border-color);
   border-radius: var(--radius-md);
-  font-size: 15px;
+  font-size: 18px;
+  font-weight: 500;
   transition: var(--transition);
   outline: none;
   background-color: #f8fafc;
@@ -252,22 +252,22 @@
 .code-input:focus {
   border-color: var(--primary);
   background-color: #ffffff;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
 }
 
 .send-code-btn {
   background-color: var(--primary);
   color: #ffffff;
   border: none;
-  padding: 12px 24px;
+  padding: 16px 32px;
   border-radius: var(--radius-md);
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .send-code-btn:hover {
@@ -275,7 +275,7 @@
 }
 
 .send-code-btn:disabled {
-  background-color: var(--text-muted);
+  background-color: #94a3b8;
   cursor: not-allowed;
 }
 
@@ -283,7 +283,7 @@
 .custom-table-wrapper {
   background-color: var(--bg-card);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   overflow: hidden;
 }
 
@@ -295,23 +295,35 @@
 
 .custom-table th {
   background-color: #f1f5f9;
-  padding: 16px 24px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-muted);
+  padding: 20px 28px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .custom-table td {
-  padding: 16px 24px;
-  font-size: 14px;
-  border-bottom: 1px solid var(--border-color);
+  padding: 20px 28px;
+  font-size: 19px;
+  border-bottom: 2px solid var(--border-color);
   background-color: #ffffff;
 }
 
 .custom-table tr:last-child td {
   border-bottom: none;
+}
+
+/* Form Guruhlari */
+.form-group {
+  margin-bottom: 24px;
+}
+.form-label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
 }
 
 /* Mobil moslashuvchanlik */
@@ -324,12 +336,13 @@
   background-color: var(--bg-sidebar);
   color: #ffffff;
   border: none;
-  padding: 12px;
+  padding: 16px;
   border-radius: var(--radius-md);
   cursor: pointer;
+  font-size: 22px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .dash-sidebar {
     transform: translateX(-100%);
   }
@@ -338,20 +351,19 @@
   }
   .dash-main {
     margin-left: 0;
-    padding: 24px;
-    padding-top: 80px;
+    padding: 28px;
+    padding-top: 100px;
   }
   .mobile-menu-toggle {
     display: block;
   }
 }
 
-/* Animatsiyalar */
 .fade-in {
-  animation: fadeIn 0.4s ease-in-out;
+  animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
